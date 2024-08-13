@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 import pandas
 import requests
-import time
 import sqlite3
-import urllib.error
-import ssl
-from urllib.parse import urljoin
-from urllib.parse import urlparse
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
-import collections
+
+page_to_scrape = requests.get('https://www.uvlist.net/gamesearch/')
+soup = BeautifulSoup(page_to_scrape.text, 'html.parser')
+uv_row = soup.find_all('tr')
+
+for row in uv_row:
+    cells = uv_row.find_all('td')
+    cell_text = [cell.get_text(strip=True) for cell in cells]
