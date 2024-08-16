@@ -15,6 +15,12 @@ for row in rows:
     cols = [col.text.strip() for col in cols]
     data.append(cols)
 
+current_page = 1
+while True:
+    url = f'https://www.uvlist.net/gamesearch/?page={current_page}'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
 #display the data
 for row in data:
     print(row)
