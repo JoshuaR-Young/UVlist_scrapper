@@ -20,6 +20,12 @@ while True:
     url = f'https://www.uvlist.net/gamesearch/?page={current_page}'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
+    table = soup.find('table', {'class': 'table-class-name'})
+
+    next_page = soup.find('a', {'class': 'next-page-class'})  # Replace with actual class or id
+    if not next_page:
+        break
+    current_page += 1
 
 #display the data
 for row in data:
