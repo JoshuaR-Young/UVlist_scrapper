@@ -27,7 +27,6 @@ while True:
         break
     current_page += 1
 
-#display the data
 for row in data:
     print(row)
     
