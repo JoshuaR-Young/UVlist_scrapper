@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
 
 url = 'https://www.uvlist.not/gamesearch/'
 response = requests.get(url)
@@ -27,6 +28,11 @@ while True:
         break
     current_page += 1
 
+with open('data.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+#display the data
 for row in data:
     print(row)
     
