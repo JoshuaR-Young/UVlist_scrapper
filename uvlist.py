@@ -32,7 +32,6 @@ with open('data.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(data)
 
-#display the data
 for row in data:
     print(row)
     
